@@ -222,14 +222,30 @@
     downloadBtn.style.display = 'block';
   }
 
-  downloadBtn.addEventListener('click', () => {
+   downloadBtn.addEventListener('click', () => {
     html2canvas(receipt, { backgroundColor: '#fff' }).then(canvas => {
-      const link = document.createElement('a');
-      link.download = 'receipt.png';
-      link.href = canvas.toDataURL();
-      link.click();
+      const imageData = canvas.toDataURL('image/png');
+
+      // iOS Safari workaround
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+      if (isIOS && isSafari) {
+        // Open in new tab for iOS Safari so user can manually save
+        const newTab = window.open();
+        newTab.document.write(`<html><body style="margin:0"><img src="${imageData}" style="width:100%;" /></body></html>`);
+      } else {
+        // Standard download
+        const link = document.createElement('a');
+        link.download = 'receipt.png';
+        link.href = imageData;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
     });
   });
+
 
   // Initial calculation on load
   calculateAndUpdate();
