@@ -1,250 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>JOROX</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-    body {
-        background: linear-gradient(135deg, #4f6cec, #c9a8e9);
-        font-family: 'Montserrat', sans-serif;
-        color: #fff;
-        margin: 0;
-        padding: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        flex-direction: column;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JOROX</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-    .calculator {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 2rem 3rem;
-        max-width: 480px;
-        width: 100%;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(12px);
-    }
+        body {
+            background: linear-gradient(135deg, #4f6cec, #c9a8e9);
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
 
-    h1 {
-        font-weight: 700;
-        font-size: 2.3rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        color: #f3f4f6;
-        user-select: none;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-    }
+        .calculator {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem 3rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+        }
 
-    label {
-        display: block;
-        margin-bottom: 0.4rem;
-        font-weight: 600;
-        font-size: 1rem;
-        color: #e0e7ff;
-    }
+        h1 {
+            font-weight: 700;
+            font-size: 2.3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #f3f4f6;
+            user-select: none;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
 
-    input[type="text"], input[type="number"] {
-        width: 100%;
-        padding: 0.55rem 0.9rem;
-        font-size: 1.1rem;
-        border-radius: 8px;
-        border: none;
-        outline: none;
-        margin-bottom: 1.5rem;
-        font-weight: 600;
-        transition: box-shadow 0.3s ease;
-        color: #333;
-        box-sizing: border-box;
-    }
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #e0e7ff;
+        }
 
-    input[type="text"]:focus, input[type="number"]:focus {
-        box-shadow: 0 0 8px 2px #b794f4;
-        background-color: #fff;
-    }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 0.55rem 0.9rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            transition: box-shadow 0.3s ease;
+            color: #333;
+            box-sizing: border-box;
+        }
 
-    button {
-        background: #a78bfa;
-        color: #fff;
-        width: 100%;
-        padding: 0.75rem 0;
-        font-size: 1.25rem;
-        font-weight: 700;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        user-select: none;
-        box-shadow: 0 6px 12px rgba(167,139,250,0.5);
-    }
+        input[type="text"]:focus, input[type="number"]:focus {
+            box-shadow: 0 0 8px 2px #b794f4;
+            background-color: #fff;
+        }
 
-    button:hover {
-        background: #7c3aed;
-        box-shadow: 0 8px 18px rgba(124,58,237,0.8);
-    }
+        button {
+            background: #a78bfa;
+            color: #fff;
+            width: 100%;
+            padding: 0.75rem 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            user-select: none;
+            box-shadow: 0 6px 12px rgba(167,139,250,0.5);
+        }
 
-    .receipt {
-        background: #fff;
-        color: #000;
-        max-width: 480px;
-        width: 100%;
-        font-family: 'Courier New', Courier, monospace;
-        border-radius: 8px;
-        padding: 1.5rem 2rem;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        user-select: text;
-        white-space: pre-wrap;
-        line-height: 1.4;
-        display: none;
-        margin: 0 auto;
-        box-sizing: border-box;
-    }
-</style>
+        button:hover {
+            background: #7c3aed;
+            box-shadow: 0 8px 18px rgba(124,58,237,0.8);
+        }
+
+        .receipt {
+            background: #fff;
+            color: #000;
+            max-width: 480px;
+            width: 100%;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            user-select: text;
+            white-space: pre-wrap;
+            line-height: 1.4;
+            display: none;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
     <main class="calculator" role="main" aria-label="Stepwise Calculator with Receipt Download">
         <h1>JOROX Calculator</h1>
         <form id="calcForm" autocomplete="off" novalidate onsubmit="return false;">
-          <label for="receiptName">Receipt Name:</label>
-          <input type="text" id="receiptName" aria-label="Receipt Name" />
+            <label for="receiptName">Receipt Name:</label>
+            <input type="text" id="receiptName" aria-label="Receipt Name" />
 
-          <label for="grossValue">Gross Value:</label>
-          <input type="text" id="grossValue" aria-label="Gross Value" />
+            <label for="grossValue">Gross Value:</label>
+            <input type="text" id="grossValue" aria-label="Gross Value" />
 
-          <label for="deductionPercentage">Deduction %:</label>
-          <input type="text" id="deductionPercentage" value="11.80" aria-label="Deduction Percentage" />
+            <label for="deductionPercentage">Deduction %:</label>
+            <input type="text" id="deductionPercentage" value="11.80" aria-label="Deduction Percentage" />
 
-          <label for="ratePerUnit">Price:</label>
-          <input type="text" id="ratePerUnit" aria-label="Rate Per Unit" />
+            <label for="ratePerUnit">Price:</label>
+            <input type="text" id="ratePerUnit" aria-label="Rate Per Unit" />
 
-          <label for="truckingPercentage">Trucking (as % of Gross):</label>
-          <input type="text" id="truckingPercentage" value="50" aria-label="Trucking Percentage" />
+            <label for="truckingPercentage">Trucking (as % of Gross):</label>
+            <input type="text" id="truckingPercentage" value="50" aria-label="Trucking Percentage" />
 
-          <label for="laborPercentage">Labor (as % of Gross):</label>
-          <input type="text" id="laborPercentage" value="40" aria-label="Labor Percentage" />
+            <label for="laborPercentage">Labor (as % of Gross):</label>
+            <input type="text" id="laborPercentage" value="40" aria-label="Labor Percentage" />
         </form>
 
         <pre id="receipt" class="receipt" aria-live="polite" aria-atomic="true" tabindex="0"></pre>
         <button id="downloadBtn" style="display:none;" aria-label="Download receipt">Download Receipt</button>
     </main>
 
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script>
-(function () {
-  const receipt = document.getElementById('receipt');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const inputs = ['receiptName', 'grossValue', 'deductionPercentage', 'ratePerUnit', 'truckingPercentage', 'laborPercentage']
-    .map(id => document.getElementById(id));
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script>
+        (function () {
+            const receipt = document.getElementById('receipt');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const inputs = ['receiptName', 'grossValue', 'deductionPercentage', 'ratePerUnit', 'truckingPercentage', 'laborPercentage']
+                .map(id => document.getElementById(id));
 
-  function formatNumber(value) {
-    if (isNaN(value)) return '';
-    return value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
+            function formatNumber(value) {
+                if (isNaN(value)) return '';
+                return value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
 
-  function parseNumber(str) {
-    return parseFloat(str.replace(/,/g, '').replace('%', '').trim());
-  }
+            function parseNumber(str) {
+                return parseFloat(str.replace(/,/g, '').replace('%', '').trim());
+            }
 
-  // Format on blur and clean on focus
-  inputs.forEach(inp => {
-    inp.addEventListener('blur', e => {
-      const val = parseNumber(e.target.value);
-      e.target.value = isNaN(val) ? '' : formatNumber(val);
-      calculateAndUpdate();
-    });
-    inp.addEventListener('focus', e => {
-      e.target.value = e.target.value.replace(/,/g, '');
-    });
-  });
+            // Format on blur and clean on focus
+            inputs.forEach(inp => {
+                inp.addEventListener('blur', e => {
+                    const val = parseNumber(e.target.value);
+                    e.target.value = isNaN(val) ? '' : formatNumber(val);
+                    calculateAndUpdate();
+                });
+                inp.addEventListener('focus', e => {
+                    e.target.value = e.target.value.replace(/,/g, '');
+                });
+            });
 
-  // Recalculate whenever any input changes
-  inputs.forEach(inp => {
-    inp.addEventListener('input', () => {
-      calculateAndUpdate();
-    });
-  });
+            // Recalculate whenever any input changes
+            inputs.forEach(inp => {
+                inp.addEventListener('input', () => {
+                    calculateAndUpdate();
+                });
+            });
 
-  function calculateAndUpdate() {
-    const receiptName = document.getElementById('receiptName').value;
-    const grossValue = parseNumber(document.getElementById('grossValue').value);
-    const deductionPercentage = parseNumber(document.getElementById('deductionPercentage').value) / 100;
-    const ratePerUnit = parseNumber(document.getElementById('ratePerUnit').value);
-    const truckingPercentage = parseNumber(document.getElementById('truckingPercentage').value) / 100;
-    const laborPercentage = parseNumber(document.getElementById('laborPercentage').value) / 100;
+            function calculateAndUpdate() {
+                const receiptName = document.getElementById('receiptName').value;
+                const grossValue = parseNumber(document.getElementById('grossValue').value);
+                const deductionPercentage = parseNumber(document.getElementById('deductionPercentage').value) / 100;
+                const ratePerUnit = parseNumber(document.getElementById('ratePerUnit').value);
+                const truckingPercentage = parseNumber(document.getElementById('truckingPercentage').value) / 100;
+                const laborPercentage = parseNumber(document.getElementById('laborPercentage').value) / 100;
 
-    if ([grossValue, deductionPercentage, ratePerUnit, truckingPercentage, laborPercentage].some(v => isNaN(v))) {
-      receipt.style.display = 'none';
-      downloadBtn.style.display = 'none';
-      return;
-    }
+                if ([grossValue, deductionPercentage, ratePerUnit, truckingPercentage, laborPercentage].some(v => isNaN(v))) {
+                    receipt.style.display = 'none';
+                    downloadBtn.style.display = 'none';
+                    return;
+                }
 
-    const deductionAmount = grossValue * deductionPercentage;
-    const netValue = grossValue - deductionAmount;
-    const grossEarnings = netValue * ratePerUnit;
+                const deductionAmount = grossValue * deductionPercentage;
+                const netValue = grossValue - deductionAmount;
+                const grossEarnings = netValue * ratePerUnit;
 
-    const truckingExpense = grossValue * truckingPercentage;
-    const laborExpense = grossValue * laborPercentage;
-    const finalTotal = grossEarnings - truckingExpense - laborExpense;
+                const truckingExpense = grossValue * truckingPercentage;
+                const laborExpense = grossValue * laborPercentage;
+                const finalTotal = grossEarnings - truckingExpense - laborExpense;
 
-    const lines = [
-      `🧾 RECEIPT`,
-      `Name: ${receiptName}`,
-      ``,
-      `1. Starting Value (Gross Base):`,
-      `  ${formatNumber(grossValue)}`,
-      ``,
-      `2. Deduction (${(deductionPercentage * 100).toFixed(2)}%):`,
-      `  ${formatNumber(grossValue)} × ${deductionPercentage.toFixed(3)} = ${formatNumber(deductionAmount)}`,
-      `  Net Value = ${formatNumber(grossValue)} − ${formatNumber(deductionAmount)} = ${formatNumber(netValue)}`,
-      ``,
-      `3. Multiply by Rate (${formatNumber(ratePerUnit)}):`,
-      `  ${formatNumber(netValue)} × ${formatNumber(ratePerUnit)} = ${formatNumber(grossEarnings)} ← (Gross Earnings)`,
-      ``,
-      `4. Trucking (${(truckingPercentage * 100).toFixed(2)}% of Starting Value):`,
-      `  ${formatNumber(grossValue)} × ${truckingPercentage.toFixed(3)} = ${formatNumber(truckingExpense)}`,
-      ``,
-      `5. Labor (${(laborPercentage * 100).toFixed(2)}% of Starting Value):`,
-      `  ${formatNumber(grossValue)} × ${laborPercentage.toFixed(3)} = ${formatNumber(laborExpense)}`,
-      ``,
-      `6. Final Total:`,
-      `  ${formatNumber(grossEarnings)} − ${formatNumber(truckingExpense)} − ${formatNumber(laborExpense)} = ${formatNumber(finalTotal)}`,
-      ``,
-      `==============================`,
-      `TOTAL: ${formatNumber(finalTotal)}`
-    ];
+                const lines = [
+                    `🧾 RECEIPT`,
+                    `Name: ${receiptName}`,
+                    ``,
+                    `1. Starting Value (Gross Base):`,
+                    `  ${formatNumber(grossValue)}`,
+                    ``,
+                    `2. Deduction (${(deductionPercentage * 100).toFixed(2)}%):`,
+                    `  ${formatNumber(grossValue)} × ${deductionPercentage.toFixed(3)} = ${formatNumber(deductionAmount)}`,
+                    `  Net Value = ${formatNumber(grossValue)} − ${formatNumber(deductionAmount)} = ${formatNumber(netValue)}`,
+                    ``,
+                    `3. Multiply by Rate (${formatNumber(ratePerUnit)}):`,
+                    `  ${formatNumber(netValue)} × ${formatNumber(ratePerUnit)} = ${formatNumber(grossEarnings)} ← (Gross Earnings)`,
+                    ``,
+                    `4. Trucking (${(truckingPercentage * 100).toFixed(2)}% of Starting Value):`,
+                    `  ${formatNumber(grossValue)} × ${truckingPercentage.toFixed(3)} = ${formatNumber(truckingExpense)}`,
+                    ``,
+                    `5. Labor (${(laborPercentage * 100).toFixed(2)}% of Starting Value):`,
+                    `  ${formatNumber(grossValue)} × ${laborPercentage.toFixed(3)} = ${formatNumber(laborExpense)}`,
+                    ``,
+                    `6. Final Total:`,
+                    `  ${formatNumber(grossEarnings)} − ${formatNumber(truckingExpense)} − ${formatNumber(laborExpense)} = ${formatNumber(finalTotal)}`,
+                    ``,
+                    `==============================`,
+                    `TOTAL: ${formatNumber(finalTotal)}`
+                ];
 
-    receipt.textContent = lines.join('\n');
-    receipt.style.display = 'block';
-    downloadBtn.style.display = 'block';
-  }
+                receipt.textContent = lines.join('\n');
+                receipt.style.display = 'block';
+                downloadBtn.style.display = 'block';
+            }
 
-  downloadBtn.addEventListener('click', () => {
-    html2canvas(receipt, { backgroundColor: '#fff' }).then(canvas => {
-      canvas.toBlob(blob => {
-        const url = URL.createObjectURL(blob);
-        // For mobile: open image in new tab/window
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
-          window.open(url, '_blank');
-        } else {
-          // For desktop: download as usual
-          const link = document.createElement('a');
-          link.download = 'receipt.png';
-          link.href = url;
-          link.click();
-        }
-        // Optional: revoke after some time
-        setTimeout(() => URL.revokeObjectURL(url), 10000);
-      }, 'image/png');
-    });
-  });
+            downloadBtn.addEventListener('click', () => {
+                html2canvas(receipt, { backgroundColor: '#fff' }).then(canvas => {
+                    canvas.toBlob(blob => {
+                        const url = URL.createObjectURL(blob);
+                        // For mobile: open image in new tab/window
+                        if (/Mobi|Android/i.test(navigator.userAgent)) {
+                            window.open(url, '_blank');
+                        } else {
+                            // For desktop: download as usual
+                            const link = document.createElement('a');
+                            link.download = 'receipt.png';
+                            link.href = url;
+                            link.click();
+                        }
+                        // Optional: revoke after some time
+                        setTimeout(() => URL.revokeObjectURL(url), 10000);
+                    }, 'image/png');
+                });
+            });
 
-  // Initial calculation on load
-  calculateAndUpdate();
-})();
-</script>
+            // Initial calculation on load
+            calculateAndUpdate();
+        })();
+    </script>
 </body>
 </html>
